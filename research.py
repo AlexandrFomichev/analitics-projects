@@ -20,6 +20,8 @@ dataset.drop(columns=["store", "yearOfSales"], inplace=True)
 
 dataset=cl.kvantil(dataset, ['Revenue'], '95%', '5%')
 
+dataset.corr()
+
 trainSet, testSet=ms.train_test_split(dataset, train_size=0.78)
 
 trainSet.info()
