@@ -37,6 +37,19 @@ class cleaning:
         normData=dataColumn/normRate
         return [normData, normRate]
     
+    def kvantil(dataset, fields, kvantUp, kvantDown):
+        upPercent=float(kvantUp.replace('%', ''))/100
+        downPercent=float(kvantDown.replace('%', ''))/100
+        for i in fields:
+            upValue=dict(dataset[i].describe([upPercent]))[kvantUp]
+            downValue=dict(dataset[i].describe([downPercent]))[kvantDown]
+            dataset=dataset[dataset[i]<=upValue][dataset[i]>=downValue]
+            pass
+        return dataset
+        pass
+    
+  
+    
     
     pass
 
