@@ -4,8 +4,7 @@ Created on Thu May  6 09:56:08 2021
 
 @author: fomichev.aleksandr
 """
-import pandas as pd
-from sklearn.preprocessing import normalize as nm
+
 import numpy as np
 class cleaning:
     def __init__(self):
@@ -24,7 +23,6 @@ class cleaning:
     
     def normalization(dataColumn, normType):
         dataColumn=np.array(dataColumn)
-        normData=nm([dataColumn],norm=normType)
         if normType=='l1':
             normRate=sum(dataColumn**2)**0.5
             pass
@@ -49,8 +47,16 @@ class cleaning:
         pass
     
   
+    def strToIndex(columns):
+        for column in columns:
+            st=list(set(column))
+            for i in st:
+                column.replace(i, st.index(i), inplace=True)
+                pass
+            pass
+        pass
     
-    
+        
     pass
 
     
